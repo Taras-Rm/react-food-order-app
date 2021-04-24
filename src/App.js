@@ -7,7 +7,7 @@ function App() {
         <div className="wrapper">
             <div className="header_logo">
                 <a className="header_logo__text" href="#h">
-                    Any food
+                    any food
                 </a>
             </div>
             <div className="header_valutes">
