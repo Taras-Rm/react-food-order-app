@@ -1,18 +1,17 @@
 * {
     padding: 0;
     margin: 0;
-
     box-sizing: border-box;
 }
 
-header {
+.header {
     background-color: black;
-}
 
-header .wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    .wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 }
 
 .wrapper {
@@ -22,7 +21,7 @@ header .wrapper {
 }
 
 .header_logo {
- margin-left: 43%;
+    margin-left: 43%;
 }
 
 .header_logo__text {
@@ -35,6 +34,12 @@ header .wrapper {
 
 .header_valutes__list {
     display: flex;
+
+    // для активної валюти
+    .active_valute {
+        color: rgb(230, 97, 36);
+        border-right: 1px solid rgb(230, 97, 36);
+    }
 }
 
 .header_valute {
@@ -46,6 +51,7 @@ header .wrapper {
     padding-right: 5px;
     margin-right: 5px;
     transition: .5s all;
+    cursor: pointer;
 }
 
 .header_valute:last-child {
@@ -62,17 +68,16 @@ header .wrapper {
 .header_valute:last-child:hover {
     border-right: none;
 }
+
 /* //////////////////////////////////////////////// */
 
 .mainbanner {
-    background: linear-gradient(
-        rgba(0, 0, 0, -0.3), 
-        rgba(0, 0, 0, 0.7)
-      ), url("../resources/images/pizza.jpg") no-repeat 50% 65%;
-    
+    background: linear-gradient(rgba(0, 0, 0, -0.3),
+            rgba(0, 0, 0, 0.7)), url("../resources/images/pizza.jpg") no-repeat 50% 65%;
+
     background-size: 100%;
     height: 250px;
-    opacity: 0.95;   
+    opacity: 0.95;
 }
 
 .mainbanner_headers {
@@ -89,6 +94,7 @@ header .wrapper {
     font-size: 23px;
     font-weight: 500;
 }
+
 /* /////////////////////////////////// */
 
 .recipesmenu {
@@ -99,13 +105,13 @@ header .wrapper {
     align-items: center;
 
     margin-bottom: 40px;
-}
 
-.recipesmenu span {
-    margin-right: 15px;
-    color: rgb(53, 53, 53);
-    font-size: 18px;
-    font-weight: 600;
+    span {
+        margin-right: 15px;
+        color: rgb(53, 53, 53);
+        font-size: 18px;
+        font-weight: 600;
+    }
 }
 
 .recipesmenu__list {
@@ -115,28 +121,35 @@ header .wrapper {
 
 .recipesmenu__list_item {
     margin-right: 15px;
+
+    .list_item {
+        text-decoration: none;
+        color: rgb(116, 115, 115);
+        font-size: 18px;
+        font-weight: 600;
+
+        border-bottom: 4px solid transparent;
+        padding-bottom: 11px;
+
+        transition: .5s all;
+    }
+
+    .list_item:hover {
+        color: rgb(53, 53, 53);
+        border-bottom: 4px solid rgb(53, 53, 53);
+        padding-bottom: 11px;
+    }
+
+    .active_list_item {
+        color: rgb(53, 53, 53);
+        border-bottom: 4px solid rgb(53, 53, 53);
+        padding-bottom: 11px;
+    }
 }
 
-.recipesmenu__list_item a {
-    text-decoration: none;
-    color: rgb(116, 115, 115);
-    font-size: 18px;
-    font-weight: 600;
-
-    border-bottom: 4px solid transparent;
-    padding-bottom: 11px;
-
-    transition: .5s all;
-}
-
-.recipesmenu__list_item a:hover {
-    color: rgb(53, 53, 53);
-    border-bottom: 4px solid rgb(53, 53, 53);
-    padding-bottom: 11px;
-}
 /* ////////////////////////////////////////////////////// */
 
-.foodbox{
+.foodbox {
     display: flex;
     flex-direction: column;
 
@@ -157,7 +170,7 @@ header .wrapper {
 }
 
 .foodbox__item:hover {
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .foodbox__item:last-child {
@@ -166,11 +179,11 @@ header .wrapper {
 
 .foodbox__item_imgbox {
     margin-right: 20px;
-}
 
-.foodbox__item_imgbox img {
-    width: 150px;
-    height: 150px;
+    img {
+        width: 150px;
+        height: 150px;
+    }
 }
 
 .foodbox__item_info {
