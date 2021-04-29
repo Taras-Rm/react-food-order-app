@@ -11,10 +11,10 @@ const Categories = ({ items }) => {
     <div className="recipesmenu">
       <span>Cuisines: </span>
       <ul className="recipesmenu__list">
-        <li onClick={() => onSelectItem(null)} className="recipesmenu__list_item">
-          <a className={`${activeItem === null ? 'active_list_item' : ''} list_item`} href="#r">
-            all
-          </a>
+        <li
+          onClick={() => onSelectItem(null)}
+          className={`${activeItem === null ? 'active_list_item' : ''} list_item`}>
+          all
         </li>
 
         {
@@ -24,12 +24,8 @@ const Categories = ({ items }) => {
               <li
                 onClick={() => onSelectItem(index)}
                 key={`${item}_${index}`}
-                className="recipesmenu__list_item">
-                <a
-                  className={`${activeItem === index ? 'active_list_item' : ''} list_item`}
-                  href="#r">
-                  {item}
-                </a>
+                className={`${activeItem === index ? 'active_list_item' : ''} list_item`}>
+                {item}
               </li>
             ))
         }

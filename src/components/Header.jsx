@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Header = ({ valutes }) => {
   const [activeValute, setActiveValute] = React.useState(0);
@@ -7,15 +8,16 @@ const Header = ({ valutes }) => {
     setActiveValute(index);
   };
 
-  console.log(activeValute);
-
   return (
     <div className="header">
       <div className="wrapper">
+        <div class="header_back_btn">
+          <span>Restaurants</span>
+        </div>
         <div className="header_logo">
-          <a className="header_logo__text" href="#h">
+          <NavLink to="/" className="header_logo__text" href="#h">
             any food
-          </a>
+          </NavLink>
         </div>
         <div className="header_valutes">
           <ul className="header_valutes__list">

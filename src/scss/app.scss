@@ -4,13 +4,22 @@
     box-sizing: border-box;
 }
 
+// сховаю скрол
+::-webkit-scrollbar {
+    /* chrome based */
+    width: 0px;
+    /* width of scrollbar'a */
+    background: transparent;
+}
+
 .header {
     background-color: black;
 
     .wrapper {
         display: flex;
-        justify-content: space-between;
         align-items: center;
+
+        position: relative;
     }
 }
 
@@ -20,8 +29,41 @@
     margin: 0 auto;
 }
 
+///
+
+.header_back_btn {
+    color: rgb(214, 211, 211);
+    font-size: 22px;
+
+    cursor: pointer;
+    // visibility для того, щоб показати його на сторінці ресторану
+    visibility: hidden;
+}
+
+.header_back_btn::before {
+    content: '';
+
+    position: absolute;
+    left: 0;
+    top: 22px;
+
+    width: 100px;
+    height: 100px;
+
+    background-image: url('../resources/images/arrow2.png');
+    background-repeat: no-repeat;
+    background-size: 35px 35px;
+}
+
+.header_back_btn span {
+    padding-left: 38px;
+}
+
+/////
+
 .header_logo {
-    margin-left: 43%;
+    text-align: center;
+    margin: 0 auto;
 }
 
 .header_logo__text {
@@ -117,34 +159,36 @@
 .recipesmenu__list {
     display: flex;
     list-style: none;
+
+    align-items: center;
+    margin-top: 15px;
 }
 
-.recipesmenu__list_item {
+
+.list_item {
+    text-decoration: none;
+    color: rgb(116, 115, 115);
+    font-size: 18px;
+    font-weight: 600;
     margin-right: 15px;
 
-    .list_item {
-        text-decoration: none;
-        color: rgb(116, 115, 115);
-        font-size: 18px;
-        font-weight: 600;
+    border-bottom: 4px solid transparent;
+    padding-bottom: 9px;
 
-        border-bottom: 4px solid transparent;
-        padding-bottom: 11px;
+    cursor: pointer;
+    transition: .5s all;
+}
 
-        transition: .5s all;
-    }
+.list_item:hover {
+    color: rgb(53, 53, 53);
+    border-bottom: 4px solid rgb(53, 53, 53);
+    padding-bottom: 9px;
+}
 
-    .list_item:hover {
-        color: rgb(53, 53, 53);
-        border-bottom: 4px solid rgb(53, 53, 53);
-        padding-bottom: 11px;
-    }
-
-    .active_list_item {
-        color: rgb(53, 53, 53);
-        border-bottom: 4px solid rgb(53, 53, 53);
-        padding-bottom: 11px;
-    }
+.active_list_item {
+    color: rgb(53, 53, 53);
+    border-bottom: 4px solid rgb(53, 53, 53);
+    padding-bottom: 9px;
 }
 
 /* ////////////////////////////////////////////////////// */
@@ -154,6 +198,14 @@
     flex-direction: column;
 
     padding-bottom: 40px;
+
+    a {
+        display: block;
+        text-decoration: none;
+        color: black;
+
+        margin-bottom: 10px;
+    }
 }
 
 .foodbox__item {
@@ -163,7 +215,7 @@
     width: 100%;
 
     padding: 20px;
-    margin-bottom: 10px;
+
     cursor: pointer;
 
     transition: .3s all;
@@ -199,4 +251,237 @@
 .foodbox__item_category {
     font-size: 18px;
     margin-bottom: 20px;
+}
+
+//////// Restaurant page ///////////////
+
+.restourant_case {
+    height: 50px;
+    background-color: rgb(207, 204, 204);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding-top: 14px;
+    margin-bottom: 40px;
+}
+
+.restourant_case__list {
+    display: flex;
+    list-style: none;
+}
+
+.restourant_case__list_item {
+    margin-right: 15px;
+
+    cursor: pointer;
+}
+
+.restourant_case__list_item {
+    text-decoration: none;
+    color: rgb(116, 115, 115);
+    font-size: 18px;
+    font-weight: 600;
+
+    border-bottom: 4px solid transparent;
+    padding-bottom: 11px;
+
+    transition: 0.5s all;
+}
+
+.active_restourant_case__list_item {
+    color: rgb(53, 53, 53);
+    border-bottom: 4px solid rgb(53, 53, 53);
+    padding-bottom: 11px;
+}
+
+.restourant_case__list_item:hover {
+    color: rgb(53, 53, 53);
+    border-bottom: 4px solid rgb(53, 53, 53);
+    padding-bottom: 11px;
+}
+
+//////////
+
+.order .wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.foodlist {
+    width: 50%;
+}
+
+.food_list_item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px;
+    border: 2px solid rgb(173, 173, 173);
+
+    margin-bottom: 10px;
+    cursor: pointer;
+
+    transition: 0.3s all;
+}
+
+.food_list_item:last-child {
+    margin-bottom: 0;
+}
+
+.food_info_title {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.food_info_category {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.food_price {
+    font-size: 22px;
+    color: rgb(230, 133, 23);
+    font-weight: 600;
+}
+
+.food_item_count {
+    display: block;
+    text-align: center;
+    margin-bottom: 8px;
+    font-size: 18px;
+    color: rgb(161, 161, 161);
+}
+
+.food_item_btns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.food_item_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 40px;
+    height: 40px;
+    background-color: rgb(230, 133, 23);
+    font-weight: 600;
+    font-size: 23px;
+
+    color: rgb(214, 211, 211);
+    cursor: pointer;
+
+    transition: 0.3s all;
+}
+
+.food_item_btn:hover {
+    background-color: rgb(177, 118, 51);
+}
+
+.food_item_btn:last-child {
+    margin-left: 5px;
+}
+
+/* /////////////////// */
+
+.basket {
+    background-color: bisque;
+    width: 48%;
+    text-align: center;
+    min-height: 300px;
+    padding: 0 15px;
+}
+
+.basket_title {
+    font-size: 25px;
+    margin: 25px 0;
+    font-weight: 600;
+}
+
+.basket_items {
+    border-bottom: 2px solid black;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.basket_item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    margin-bottom: 5px;
+}
+
+.basket_item_name {
+    width: 50%;
+    text-align: left;
+}
+
+.basket_item_func {
+    display: flex;
+    align-items: center;
+}
+
+.basket_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 20px;
+    height: 20px;
+    background-color: rgb(141, 141, 141);
+    font-weight: 600;
+    font-size: 20px;
+
+    color: rgb(214, 211, 211);
+    cursor: pointer;
+
+    transition: 0.3s all;
+}
+
+.basket_btn:hover {
+    background-color: rgb(100, 100, 100);
+}
+
+.basket_count {
+    margin: 0 5px;
+}
+
+.basket_total {
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 15px;
+}
+
+.basket_total_item {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 5px;
+}
+
+.basket_total_item_s {
+    text-transform: uppercase;
+}
+
+.basket_total_item.end {
+    font-weight: 600;
+}
+
+.checkout_btn {
+    border: none;
+    width: 100%;
+    font-size: 22px;
+    padding: 10px 0;
+    color: rgb(214, 211, 211);
+    background-color: rgb(209, 98, 7);
+    cursor: pointer;
+    transition: 0.2s all;
+}
+
+.checkout_btn:hover {
+    background-color: rgb(231, 143, 71);
 }
