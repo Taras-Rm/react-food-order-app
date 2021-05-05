@@ -1,0 +1,94 @@
+{
+    "restaurants": [
+        {
+            "name": "Dishoom",
+            "imageUrl": "https://bufet.net/uploads/posts/2017-05/1495325512_steyk-iz-govyadiny.jpg",
+            "foodType": "Vegan, pizza, sushi",
+            "raiting": 4,
+            "food": [
+                {
+                    "name": "Chicken tikka",
+                    "ingradients": ["rise", "chicken"],
+                    "price": 20
+                },
+                {
+                    "name": "Naan",
+                    "ingradients": ["bread"],
+                    "price": 3
+                },
+                {
+                    "name": "Samosa",
+                    "ingradients": ["chicken", "bread"],
+                    "price": 8
+                }
+            ],
+            "reviews": [
+                {
+                    "reviewerName": "Tom",
+                    "mark": 5,
+                    "comment": "Very good !"
+                },
+                {
+                    "reviewerName": "Sam",
+                    "mark": 3,
+                    "comment": "No burgers"
+                }
+            ]
+        },
+        {
+            "name": "Homeslice",
+            "imageUrl": "https://bufet.net/uploads/posts/2017-05/1495325512_steyk-iz-govyadiny.jpg",
+            "foodType": "steak",
+            "raiting": 3,
+            "food": [
+                {
+                    "name": "Mlynec",
+                    "ingradients": ["muka", "sugar"],
+                    "price": 15
+                },
+                {
+                    "name": "Cake",
+                    "ingradients": ["muka"],
+                    "price": 20
+                }
+            ],
+            "reviews": [
+                {
+                    "reviewerName": "Tommy",
+                    "mark": 2,
+                    "comment": "Bad service !!!"
+                }
+            ]
+        },
+        {
+            "name": "Samosa",
+            "imageUrl": "https://bufet.net/uploads/posts/2017-05/1495325512_steyk-iz-govyadiny.jpg",
+            "foodType": "Chicken, bread",
+            "raiting": 4,
+            "food": [
+                {
+                    "name": "Tikka",
+                    "ingradients": ["rise"],
+                    "price": 22
+                }
+            ],
+            "reviews": [
+                {
+                    "reviewerName": "Tom",
+                    "mark": 5,
+                    "comment": "Very good !"
+                },
+                {
+                    "reviewerName": "Sam",
+                    "mark": 3,
+                    "comment": "No burgers"
+                },
+                {
+                    "reviewerName": "Bob",
+                    "mark": 5,
+                    "comment": "Great personal"
+                }
+            ]
+        }
+    ]
+}
