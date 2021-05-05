@@ -376,6 +376,11 @@
     transition: 0.3s all;
 }
 
+// disable minus btn, when 0
+.food_item_btn.minus {
+    pointer-events: none;
+}
+
 .food_item_btn:hover {
     background-color: rgb(177, 118, 51);
 }

@@ -34,43 +34,4 @@ const Categories = ({ items }) => {
   );
 };
 
-// class Categories extends React.Component {
-//   state = {
-//     activeItem: 'all',
-//   };
-
-//   onClickI = (name) => {
-//     this.setState({ activeItem: name });
-//   };
-
-//   render() {
-//     return (
-//       <div className="recipesmenu">
-//         <span>Cuisines: </span>
-//         <ul className="recipesmenu__list">
-//           <li className="recipesmenu__list_item">
-//             <a className="list_item active_list_item" href="#r">
-//               all
-//             </a>
-//           </li>
-
-//           {this.props.items.map((item, index) => (
-//             <li
-//               onClick={() => this.onClickI(item)}
-//               key={`${item}_${index}`}
-//               className="recipesmenu__list_item">
-//               <a
-//                 // додавання класу для активного пункту
-//                 className={`${this.state.activeItem === item ? 'active_list_item' : ''} list_item`}
-//                 href="#r">
-//                 {item}
-//               </a>
-//             </li>
-//           ))}
-//         </ul>
-//       </div>
-//     );
-//   }
-// }
-
 export default Categories;

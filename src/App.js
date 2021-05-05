@@ -3,7 +3,7 @@ import { Route } from 'react-router';
 
 import Header from './components/Header';
 import Home from './pages/Home';
-import Restaurant from './pages/Restaurant';
+import Restaurant from './pages/restaurant/Restaurant';
 
 const App = () => {
   return (
@@ -11,7 +11,7 @@ const App = () => {
       <Header valutes={['usd', 'eur', 'rub', 'uan']} />
       <div>
         <Route path="/" component={Home} exact />
-        <Route path="/restaurant" component={Restaurant} />
+        <Route path="/restaurant" component={Restaurant} exact />
       </div>
     </div>
   );
