@@ -11,7 +11,7 @@ const Header = ({ valutes }) => {
   return (
     <div className="header">
       <div className="wrapper">
-        <div class="header_back_btn">
+        <div className="header_back_btn">
           <span>Restaurants</span>
         </div>
         <div className="header_logo">
