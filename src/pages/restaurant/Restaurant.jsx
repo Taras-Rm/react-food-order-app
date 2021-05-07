@@ -5,7 +5,7 @@ import Reviews from './Reviews/Reviews';
 
 const Restaurant = (props) => {
   React.useEffect(() => {
-    const restau = props.restaurants.filter((item) => item.id == props.match.params.id);
+    const restau = props.restaurants.filter((item) => item.id === Number(props.match.params.id));
     setActiveRestaurant(restau[0]);
 
     // Міняти фон банера залежно від ресторану
@@ -17,6 +17,8 @@ const Restaurant = (props) => {
   const [activeRestaurant, setActiveRestaurant] = React.useState({});
   // Перемикач
   const [activeItem, setActiveItem] = React.useState(null);
+
+  console.log(activeRestaurant);
 
   return (
     <div>
@@ -48,7 +50,7 @@ const Restaurant = (props) => {
       </div>
       {/* відобразити меню або рев'ю*/}
       {activeItem === null ? (
-        <Menu food={activeRestaurant.food} />
+        <Menu foodList={activeRestaurant.food} />
       ) : activeItem === 1 ? (
         <Reviews />
       ) : null}

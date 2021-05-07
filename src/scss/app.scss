@@ -495,3 +495,93 @@ url("../resources/images/pizza.jpg") no-repeat 50% 65%;
 .checkout_btn:hover {
     background-color: rgb(231, 143, 71);
 }
+
+// ////////////////////////////////// Reviews block
+.reviewsList {
+    display: flex;
+    flex-direction: column;
+}
+
+.review_item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px;
+    width: 100%;
+    border: 2px solid rgb(173, 173, 173);
+    margin-bottom: 15px;
+}
+
+.review_item_name {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.review_item_text {
+    font-size: 18px;
+}
+
+.review_form {
+    display: flex;
+    flex-direction: column;
+
+    padding: 20px;
+    width: 100%;
+    border: 2px solid rgb(173, 173, 173);
+    margin-bottom: 15px;
+}
+
+.review_form_title {
+    margin-bottom: 15px;
+}
+
+.review_form_textarea {
+    display: inline-block;
+    width: 60%;
+    max-height: 150px;
+    min-height: 100px;
+    padding: 5px;
+    font-size: 15px;
+    border: 2px solid rgb(173, 173, 173);
+    margin-bottom: 10px;
+}
+
+.review_form_raiting {
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 25px;
+}
+
+.review_form_raiting span {
+    margin-right: 5px;
+
+    font-size: 18px;
+}
+
+.review_form_btn {
+    display: inline-block;
+    text-align: center;
+    background-color: rgb(230, 133, 23);
+    border: 2px solid transparent;
+    border-radius: 2px;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    text-transform: uppercase;
+    padding: 10px 15px;
+    letter-spacing: 2px;
+
+    cursor: pointer;
+    transition: 0.3s all;
+}
+
+.review_form_btn:hover {
+    background-color: white;
+    border: 2px solid rgb(230, 133, 23);
+    color: rgb(230, 133, 23);
+}
+
+// End of rewievs block
+////////////////////////////////////////////////////

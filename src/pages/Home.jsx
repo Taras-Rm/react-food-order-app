@@ -5,13 +5,15 @@ import Categories from '../components/Categories';
 import { NavLink } from 'react-router-dom';
 import RestaurantItem from './RestaurantItem';
 
-const Home = ({ restaurants }) => {
+const Home = (props) => {
   // Маплю масив з ресторанами
-  const restaurantsList = restaurants.map((restaurant) => (
+  const restaurantsList = props.restaurants.map((restaurant) => (
     <NavLink key={restaurant.id} to={`/restaurant/${restaurant.id}`}>
       <RestaurantItem restaurant={restaurant} />
     </NavLink>
   ));
+
+  console.log(props.restaurants);
   return (
     <div>
       <MainBanner />

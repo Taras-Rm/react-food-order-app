@@ -13,10 +13,11 @@ const App = () => {
   // Отримую state із тестової бази даних db.json
   React.useEffect(() => {
     axios.get('http://localhost:3000/db.json').then((response) => {
-      const dt = response.data.restaurants;
-      setRestaurants(dt);
+      setRestaurants(response.data.restaurants);
     });
   }, []);
+
+  //console.log(restaurants);
 
   return (
     <div>
