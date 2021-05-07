@@ -4,6 +4,7 @@ import MenuItem from './MenuItem';
 
 const Menu = (props) => {
   //const foodList = props.food.map((item) => <MenuItem item={item} />);
+
   console.log(props.foodList);
   return (
     <div className="order">

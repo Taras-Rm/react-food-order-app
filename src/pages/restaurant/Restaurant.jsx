@@ -50,7 +50,7 @@ const Restaurant = (props) => {
       </div>
       {/* відобразити меню або рев'ю*/}
       {activeItem === null ? (
-        <Menu foodList={activeRestaurant.food} />
+        <Menu food={activeRestaurant.food} />
       ) : activeItem === 1 ? (
         <Reviews />
       ) : null}

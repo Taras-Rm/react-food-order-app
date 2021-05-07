@@ -17,8 +17,6 @@ const App = () => {
     });
   }, []);
 
-  //console.log(restaurants);
-
   return (
     <div>
       <Header valutes={['usd', 'eur', 'rub', 'uan']} />
