@@ -24,10 +24,10 @@ const Header = ({ valutes }) => {
             {valutes &&
               valutes.map((valute, index) => (
                 <li
-                  key={`${valute}_${index}`}
+                  key={`${valute.name}_${index}`}
                   onClick={() => onSelectValute(index)}
                   className={`${activeValute === index ? 'active_valute' : ''} header_valute`}>
-                  {valute}
+                  {valute.name}
                 </li>
               ))}
           </ul>

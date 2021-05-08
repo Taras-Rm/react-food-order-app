@@ -4,3 +4,10 @@ const setRestaurants = (items) => {
     payload: items,
   };
 };
+
+const chooseRestaurants = (id) => {
+  return {
+    type: 'CHOOSE_RESTAURANT',
+    restaurantId: id,
+  };
+};

@@ -19,7 +19,14 @@ const App = () => {
 
   return (
     <div>
-      <Header valutes={['usd', 'eur', 'rub', 'uan']} />
+      <Header
+        valutes={[
+          { name: 'usd', id: 0 },
+          { name: 'eur', id: 1 },
+          { name: 'rub', id: 2 },
+          { name: 'uan', id: 3 },
+        ]}
+      />
       <div>
         <Route path="/" render={() => <Home restaurants={restaurants} />} exact />
         <Route

@@ -1,28 +1,14 @@
 import React from 'react';
+import BasketItem from './BasketItem';
 
 const Basket = () => {
   return (
     <div className="basket">
       <div className="basket_title">Basket</div>
       <div className="basket_items">
-        <div className="basket_item">
-          <span className="basket_item_name">Chicken lvflg kkgf</span>
-          <div className="basket_item_func">
-            <div className="basket_btn">-</div>
-            <span className="basket_count"> 1 </span>
-            <div className="basket_btn">+</div>
-          </div>
-          <span className="basket_item_price">20.00</span>
-        </div>
-        <div className="basket_item">
-          <span className="basket_item_name">Chicken</span>
-          <div className="basket_item_func">
-            <div className="basket_btn">-</div>
-            <span className="basket_count"> 1 </span>
-            <div className="basket_btn">+</div>
-          </div>
-          <span className="basket_item_price">20.00</span>
-        </div>
+        <BasketItem />
+        <BasketItem />
+        <BasketItem />
       </div>
       <div className="basket_total">
         <div className="basket_total_item">

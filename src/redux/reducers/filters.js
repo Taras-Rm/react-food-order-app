@@ -1,5 +1,6 @@
 const initialState = {
   category: null,
+  activeValute: 0,
 };
 
 const filters = (state = initialState, action) => {
@@ -8,6 +9,12 @@ const filters = (state = initialState, action) => {
       return {
         ...state,
         category: action.category,
+      };
+    }
+    case 'SET_VALUTE': {
+      return {
+        ...state,
+        activeValute: action.valuteId,
       };
     }
     default:
