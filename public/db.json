@@ -154,6 +154,37 @@
                     "comment": "Great personal"
                 }
             ]
+        },
+        {
+            "id": 5,
+            "name": "Pizza",
+            "imageUrl": "https://www.kvantro-pizza.com.ua/images/blog/istoriya-italyanskoj-pitstsy.jpg",
+            "foodType": "Chicken, bread",
+            "raiting": 4,
+            "food": [
+                {
+                    "name": "Tikka",
+                    "ingradients": ["rise"],
+                    "price": 22
+                }
+            ],
+            "reviews": [
+                {
+                    "reviewerName": "Tom",
+                    "mark": 5,
+                    "comment": "Very good !"
+                },
+                {
+                    "reviewerName": "Sam",
+                    "mark": 3,
+                    "comment": "No burgers"
+                },
+                {
+                    "reviewerName": "Bob",
+                    "mark": 5,
+                    "comment": "Great personal"
+                }
+            ]
         }
     ]
 }

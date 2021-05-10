@@ -1,10 +1,16 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { setCategory } from '../redux/actions/filters';
 
-const Categories = ({ items }) => {
+const Categories = ({ items, onClickItem }) => {
   const [activeItem, setActiveItem] = React.useState(null);
+
+  const dispatch = useDispatch();
 
   const onSelectItem = (index) => {
     setActiveItem(index);
+    //onClickItem(index);
+    dispatch(setCategory(index));
   };
 
   return (

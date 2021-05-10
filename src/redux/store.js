@@ -6,12 +6,17 @@ import basketReducer from './reducers/basket';
 import restaurantReducer from './reducers/restaurant';
 
 let rootReducer = combineReducers({
-  filtersReducer,
-  restaurantsReducer,
-  basketReducer,
-  restaurantReducer,
+  filters: filtersReducer,
+  restaurants: restaurantsReducer,
+  basket: basketReducer,
+  restaurant: restaurantReducer,
 });
 
-const store = createStore(rootReducer);
+const store = createStore(
+  rootReducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+);
+
+window.store = store;
 
 export default store;

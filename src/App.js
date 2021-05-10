@@ -1,20 +1,23 @@
 import axios from 'axios';
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Route } from 'react-router';
 
 import Header from './components/Header';
 import Home from './pages/Home';
 import RestaurantWithRouter from './pages/restaurant/Restaurant';
+import { setRestaurants } from './redux/actions/restaurants';
+import { setCategory } from './redux/actions/filters';
 
 const App = () => {
-  // Для всього state
-  const [restaurants, setRestaurants] = React.useState([]);
+  const dispatch = useDispatch();
 
   // Отримую state із тестової бази даних db.json
   React.useEffect(() => {
     axios.get('http://localhost:3000/db.json').then((response) => {
-      setRestaurants(response.data.restaurants);
+      dispatch(setRestaurants(response.data.restaurants));
     });
+    console.log('pppppp');
   }, []);
 
   return (
@@ -28,10 +31,10 @@ const App = () => {
         ]}
       />
       <div>
-        <Route path="/" render={() => <Home restaurants={restaurants} />} exact />
+        <Route path="/" component={Home} exact />
         <Route
           path="/restaurant/:id"
-          render={() => <RestaurantWithRouter restaurants={restaurants} />}
+          render={() => <RestaurantWithRouter restaurants={[]} />}
           exact
         />
       </div>

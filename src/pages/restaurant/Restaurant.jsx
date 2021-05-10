@@ -4,28 +4,15 @@ import Menu from './Menu/Menu';
 import Reviews from './Reviews/Reviews';
 
 const Restaurant = (props) => {
-  React.useEffect(() => {
-    const restau = props.restaurants.filter((item) => item.id === Number(props.match.params.id));
-    setActiveRestaurant(restau[0]);
-
-    // Міняти фон банера залежно від ресторану
-    document.querySelector(
-      '.mainbanner',
-    ).style.background = `linear-gradient(rgba(0, 0, 0, -0.3), rgba(0, 0, 0, 0.7)), url(${activeRestaurant.imageUrl}) no-repeat 50% 65%`;
-  });
-  // Встановити вибраний ресторан
-  const [activeRestaurant, setActiveRestaurant] = React.useState({});
   // Перемикач
   const [activeItem, setActiveItem] = React.useState(null);
-
-  console.log(activeRestaurant);
 
   return (
     <div>
       <div className="mainbanner">
         <div className="mainbanner_headers">
-          <h1 className="mainbanner__header_one">{activeRestaurant.name}</h1>
-          <h2 className="mainbanner__header_two">{activeRestaurant.foodType}</h2>
+          <h1 className="mainbanner__header_one">{}</h1>
+          <h2 className="mainbanner__header_two">{}</h2>
         </div>
       </div>
 
@@ -49,11 +36,7 @@ const Restaurant = (props) => {
         </ul>
       </div>
       {/* відобразити меню або рев'ю*/}
-      {activeItem === null ? (
-        <Menu food={activeRestaurant.food} />
-      ) : activeItem === 1 ? (
-        <Reviews />
-      ) : null}
+      {activeItem === null ? <Menu /> : activeItem === 1 ? <Reviews /> : null}
     </div>
   );
 };
