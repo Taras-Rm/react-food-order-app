@@ -1,16 +1,14 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { setCategory } from '../redux/actions/filters';
+import { fetchRestaurants } from '../redux/actions/restaurants';
 
-const Categories = ({ items, onClickItem }) => {
-  const [activeItem, setActiveItem] = React.useState(null);
-
+const Categories = ({ items, activeCategory }) => {
   const dispatch = useDispatch();
 
   const onSelectItem = (index) => {
-    setActiveItem(index);
-    //onClickItem(index);
     dispatch(setCategory(index));
+    //dispatch(fetchRestaurants());
   };
 
   return (
@@ -19,7 +17,7 @@ const Categories = ({ items, onClickItem }) => {
       <ul className="recipesmenu__list">
         <li
           onClick={() => onSelectItem(null)}
-          className={`${activeItem === null ? 'active_list_item' : ''} list_item`}>
+          className={`${activeCategory === null ? 'active_list_item' : ''} list_item`}>
           all
         </li>
 
@@ -30,7 +28,7 @@ const Categories = ({ items, onClickItem }) => {
               <li
                 onClick={() => onSelectItem(index)}
                 key={`${item}_${index}`}
-                className={`${activeItem === index ? 'active_list_item' : ''} list_item`}>
+                className={`${activeCategory === index ? 'active_list_item' : ''} list_item`}>
                 {item}
               </li>
             ))

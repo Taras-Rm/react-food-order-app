@@ -1,9 +1,11 @@
-import { combineReducers, createStore } from 'redux';
+import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
 
 import filtersReducer from './reducers/filters';
 import restaurantsReducer from './reducers/restaurants';
 import basketReducer from './reducers/basket';
 import restaurantReducer from './reducers/restaurant';
+
+import thunk from 'redux-thunk';
 
 let rootReducer = combineReducers({
   filters: filtersReducer,
@@ -12,10 +14,9 @@ let rootReducer = combineReducers({
   restaurant: restaurantReducer,
 });
 
-const store = createStore(
-  rootReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-);
+const composeEnchancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(rootReducer, composeEnchancer(applyMiddleware(thunk)));
 
 window.store = store;
 
