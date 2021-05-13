@@ -1,18 +1,23 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import MainBanner from '../components/MainBanner';
 import Categories from '../components/Categories';
 import { NavLink } from 'react-router-dom';
 import RestaurantItem from './RestaurantItem';
+import { chooseRestaurant } from '../redux/actions/restaurant';
 
 const Home = (props) => {
   // Отримати масив з ресторанами
   const restaurants = useSelector((state) => state.restaurants.items);
+  const dispatch = useDispatch();
 
   // Маплю масив з ресторанами
   const restaurantsList = restaurants.map((restaurant) => (
-    <NavLink key={restaurant.id} to={`/restaurant/${restaurant.id}`}>
+    <NavLink
+      onClick={() => dispatch(chooseRestaurant(restaurant.id))}
+      key={restaurant.id}
+      to={`/restaurant/${restaurant.id}`}>
       <RestaurantItem restaurant={restaurant} />
     </NavLink>
   ));

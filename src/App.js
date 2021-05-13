@@ -5,19 +5,17 @@ import { Route } from 'react-router';
 
 import Header from './components/Header';
 import Home from './pages/Home';
-import RestaurantWithRouter from './pages/restaurant/Restaurant';
+import Restaurant from './pages/restaurant/Restaurant';
 import { setRestaurants } from './redux/actions/restaurants';
-import { setCategory } from './redux/actions/filters';
 
 const App = () => {
   const dispatch = useDispatch();
 
-  // Отримую state із тестової бази даних db.json
+  // Отримую state із фейкового сервера
   React.useEffect(() => {
-    axios.get('http://localhost:3000/db.json').then((response) => {
-      dispatch(setRestaurants(response.data.restaurants));
+    axios.get('http://localhost:3001/restaurants').then((response) => {
+      dispatch(setRestaurants(response.data));
     });
-    console.log('pppppp');
   }, []);
 
   return (
@@ -32,11 +30,7 @@ const App = () => {
       />
       <div>
         <Route path="/" component={Home} exact />
-        <Route
-          path="/restaurant/:id"
-          render={() => <RestaurantWithRouter restaurants={[]} />}
-          exact
-        />
+        <Route path="/restaurant/:id" component={Restaurant} exact />
       </div>
     </div>
   );

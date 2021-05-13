@@ -16,9 +16,9 @@ const MenuItem = (props) => {
   return (
     <div className="food_list_item">
       <div className="food_info">
-        <h3 className="food_info_title">Chicken</h3>
-        <div className="food_info_category">chicken, rise</div>
-        <span className="food_price"> 20.00 </span>
+        <h3 className="food_info_title">{props.item.name}</h3>
+        <div className="food_info_category">{props.item.ingradients.join(', ')}</div>
+        <span className="food_price">{props.item.price}</span>
       </div>
       <div className="food_item_functionality">
         <span className="food_item_count"> {foodCount} </span>
