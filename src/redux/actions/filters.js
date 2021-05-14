@@ -6,9 +6,11 @@ export const setCategory = (index, value) => {
   };
 };
 
-export const setValute = (id) => {
+export const setValute = (id, name, curs) => {
   return {
     type: 'SET_VALUTE',
     valuteId: id,
+    valuteName: name,
+    valueCurs: curs,
   };
 };

@@ -7,7 +7,6 @@ const Menu = (props) => {
     <MenuItem key={`${index}_${item.name}`} item={item} />
   ));
 
-  //console.log(props.foodList);
   return (
     <div className={`${props.activeItem === null ? '' : 'hidden'} order`}>
       <div className="wrapper">
