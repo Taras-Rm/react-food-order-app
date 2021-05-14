@@ -1,5 +1,8 @@
 const initialState = {
-  category: null,
+  category: {
+    value: null,
+    name: 'all',
+  },
   activeValute: 0,
 };
 
@@ -8,7 +11,10 @@ const filters = (state = initialState, action) => {
     case 'SET_CATEGORY': {
       return {
         ...state,
-        category: action.category,
+        category: {
+          value: action.index,
+          name: action.value,
+        },
       };
     }
     case 'SET_VALUTE': {

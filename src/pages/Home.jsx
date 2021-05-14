@@ -8,6 +8,7 @@ import RestaurantItem from './RestaurantItem/RestaurantItem';
 import { chooseRestaurant } from '../redux/actions/restaurant';
 import LoadingRestaurantItem from './RestaurantItem/LoadingRestaurantItem';
 import { fetchRestaurants } from '../redux/actions/restaurants';
+import { setCategory } from '../redux/actions/filters';
 
 const Home = (props) => {
   const dispatch = useDispatch();
@@ -19,9 +20,14 @@ const Home = (props) => {
   // Отримати ід активної категорії (і перекинути в компоненту Categories)
   const activeCategory = useSelector((state) => state.filters.category);
 
+  // Вмбір категорії
+  const onSelectItem = (index, value) => {
+    dispatch(setCategory(index, value));
+  };
+
   // Отримати ресторани
   React.useEffect(() => {
-    dispatch(fetchRestaurants());
+    dispatch(fetchRestaurants(activeCategory.value));
     //  activeCategory - ставлю, щоб була реакція на зміни
   }, [activeCategory]);
 
@@ -40,6 +46,7 @@ const Home = (props) => {
       <MainBanner />
       <Categories
         activeCategory={activeCategory}
+        onSelectItem={onSelectItem}
         items={['pizza', 'sushi', 'vegan', 'steak', 'seafood']}
       />
 

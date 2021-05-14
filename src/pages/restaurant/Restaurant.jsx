@@ -32,7 +32,7 @@ const Restaurant = (props) => {
       <div className="mainbanner">
         <div className="mainbanner_headers">
           <h1 className="mainbanner__header_one">{restaurant.name}</h1>
-          <h2 className="mainbanner__header_two">{restaurant.foodType}</h2>
+          <h2 className="mainbanner__header_two">{restaurant.foodType.value}</h2>
         </div>
       </div>
 

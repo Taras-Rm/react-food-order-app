@@ -3,21 +3,14 @@ import { useDispatch } from 'react-redux';
 import { setCategory } from '../redux/actions/filters';
 import { fetchRestaurants } from '../redux/actions/restaurants';
 
-const Categories = ({ items, activeCategory }) => {
-  const dispatch = useDispatch();
-
-  const onSelectItem = (index) => {
-    dispatch(setCategory(index));
-    //dispatch(fetchRestaurants());
-  };
-
+const Categories = ({ items, activeCategory, onSelectItem }) => {
   return (
     <div className="recipesmenu">
       <span>Cuisines: </span>
       <ul className="recipesmenu__list">
         <li
-          onClick={() => onSelectItem(null)}
-          className={`${activeCategory === null ? 'active_list_item' : ''} list_item`}>
+          onClick={() => onSelectItem(null, 'all')}
+          className={`${activeCategory.value === null ? 'active_list_item' : ''} list_item`}>
           all
         </li>
 
@@ -26,9 +19,9 @@ const Categories = ({ items, activeCategory }) => {
           items &&
             items.map((item, index) => (
               <li
-                onClick={() => onSelectItem(index)}
+                onClick={() => onSelectItem(index, item)}
                 key={`${item}_${index}`}
-                className={`${activeCategory === index ? 'active_list_item' : ''} list_item`}>
+                className={`${activeCategory.value === index ? 'active_list_item' : ''} list_item`}>
                 {item}
               </li>
             ))

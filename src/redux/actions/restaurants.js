@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Categories from '../../components/Categories';
 
 export const setLoaded = (payload) => {
   return {
@@ -8,12 +9,19 @@ export const setLoaded = (payload) => {
 };
 
 // Асинхроний запит для отримання ресторанів і їх запис в Redux
-export const fetchRestaurants = () => (dispatch) => {
+export const fetchRestaurants = (category) => (dispatch) => {
+  console.log(category);
   dispatch(setLoaded(false));
-  axios.get('http://localhost:3001/restaurants').then((response) => {
-    dispatch(setRestaurants(response.data));
-  });
-  //dispatch(setLoaded(false));
+  axios
+    .get(
+      // Перевірка на те чи показувати всі категорії чи якусь обрану
+      category === null
+        ? 'http://localhost:3001/restaurants?_sort=raiting&_order=desc'
+        : `http://localhost:3001/restaurants?foodType.id=${category}`,
+    )
+    .then((response) => {
+      dispatch(setRestaurants(response.data));
+    });
 };
 
 export const setRestaurants = (items) => {

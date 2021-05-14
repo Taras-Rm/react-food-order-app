@@ -1,7 +1,8 @@
-export const setCategory = (index) => {
+export const setCategory = (index, value) => {
   return {
     type: 'SET_CATEGORY',
-    category: index,
+    index: index,
+    value: value,
   };
 };
 
