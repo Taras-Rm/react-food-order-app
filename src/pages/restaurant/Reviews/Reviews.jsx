@@ -2,7 +2,7 @@ import React from 'react';
 
 const Reviews = (props) => {
   return (
-    <div className="reviews">
+    <div className={`${props.activeItem === 1 ? '' : 'hidden'} reviews`}>
       <div className="wrapper">
         <div className="reviewsList">
           <div className="review_item">

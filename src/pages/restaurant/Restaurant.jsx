@@ -56,11 +56,13 @@ const Restaurant = (props) => {
         </ul>
       </div>
       {/* відобразити меню або рев'ю*/}
-      {activeItem === null ? (
+      {/* {activeItem === null ? (
         <Menu menu={restaurant.food} />
       ) : activeItem === 1 ? (
         <Reviews />
-      ) : null}
+      ) : null} */}
+      <Menu activeItem={activeItem} menu={restaurant.food} />
+      <Reviews activeItem={activeItem} />
     </div>
   );
 };

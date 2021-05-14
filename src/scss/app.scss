@@ -37,28 +37,45 @@
     color: rgb(214, 211, 211);
     font-size: 22px;
 
-    cursor: pointer;
+    //cursor: pointer;
     // visibility для того, щоб показати його на сторінці ресторану
-    visibility: hidden;
-}
-
-.header_back_btn::before {
-    content: '';
-
-    position: absolute;
-    left: 0;
-    top: 22px;
-
-    width: 100px;
-    height: 100px;
-
-    background-image: url('../resources/images/arrow2.png');
-    background-repeat: no-repeat;
-    background-size: 35px 35px;
 }
 
 .header_back_btn span {
-    padding-left: 38px;
+    cursor: pointer;
+    transition: .3s all;
+}
+
+.header_back_btn_link {
+    text-decoration: none;
+}
+
+.header_back_btn span:hover {
+    color: #e66124;
+}
+
+.header_back_btn_visab {
+    visibility: hidden;
+}
+
+
+// .header_back_btn::before {
+//     content: '';
+
+//     position: absolute;
+//     left: 0;
+//     top: 22px;
+
+//     width: 100px;
+//     height: 100px;
+
+//     background-image: url('../resources/images/arrow2.png');
+//     background-repeat: no-repeat;
+//     background-size: 35px 35px;
+// }
+
+.header_back_btn span {
+    margin-left: 38px;
 }
 
 /////
@@ -307,6 +324,9 @@ url("../resources/images/pizza.jpg") no-repeat 50% 65%;
 }
 
 //////////
+.hidden {
+    display: none;
+}
 
 .order .wrapper {
     display: flex;
@@ -400,7 +420,7 @@ url("../resources/images/pizza.jpg") no-repeat 50% 65%;
     background-color: bisque;
     width: 48%;
     text-align: center;
-    min-height: 300px;
+    min-height: 320px;
     padding: 0 15px;
 }
 

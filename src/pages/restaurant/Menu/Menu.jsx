@@ -9,7 +9,7 @@ const Menu = (props) => {
 
   //console.log(props.foodList);
   return (
-    <div className="order">
+    <div className={`${props.activeItem === null ? '' : 'hidden'} order`}>
       <div className="wrapper">
         <div className="foodlist">
           {/* Відобразити всю їжу в ресторані */}
