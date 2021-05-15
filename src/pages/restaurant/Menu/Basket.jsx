@@ -1,15 +1,23 @@
 import React from 'react';
 import BasketItem from './BasketItem';
 
+import { useSelector } from 'react-redux';
+
 const Basket = () => {
+  const items = useSelector((state) => state.basket.items);
+
+  // Прокинути пропси далі в айтем
+  // Перевірка чи не нуль, щоб коли 0, то не відображати тієї страви в корзині
+  const basketItems = items.map((item, index) => {
+    if (item.count !== 0) {
+      return <BasketItem key={`${item}_${index}`} item={item} />;
+    }
+  });
+
   return (
     <div className="basket">
       <div className="basket_title">Basket</div>
-      <div className="basket_items">
-        <BasketItem />
-        <BasketItem />
-        <BasketItem />
-      </div>
+      <div className="basket_items">{basketItems}</div>
       <div className="basket_total">
         <div className="basket_total_item">
           <span className="basket_total_item_f">Sub-total</span>

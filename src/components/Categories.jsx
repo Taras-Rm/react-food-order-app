@@ -1,7 +1,4 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { setCategory } from '../redux/actions/filters';
-import { fetchRestaurants } from '../redux/actions/restaurants';
 
 const Categories = ({ items, activeCategory, onSelectItem }) => {
   return (

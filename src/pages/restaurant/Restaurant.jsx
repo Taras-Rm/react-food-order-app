@@ -56,7 +56,7 @@ const Restaurant = (props) => {
         </ul>
       </div>
 
-      <Menu activeItem={activeItem} menu={restaurant.food} />
+      <Menu restaurantId={restaurant.id} activeItem={activeItem} menu={restaurant.food} />
       <Reviews activeItem={activeItem} />
     </div>
   );

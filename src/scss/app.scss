@@ -20,6 +20,7 @@
     .wrapper {
         display: flex;
         align-items: center;
+        height: 80px;
 
         position: relative;
     }
@@ -27,7 +28,6 @@
 
 .wrapper {
     width: 1000px;
-    height: 80px;
     margin: 0 auto;
 }
 
@@ -91,6 +91,7 @@
     text-decoration: none;
     text-transform: uppercase;
     font-weight: 600;
+    margin-left: 290px;
 }
 
 .header_valutes__list {
@@ -417,11 +418,11 @@ url("../resources/images/pizza.jpg") no-repeat 50% 65%;
 /* /////////////////// */
 
 .basket {
+    height: fit-content;
     background-color: bisque;
     width: 48%;
     text-align: center;
-    min-height: 320px;
-    padding: 0 15px;
+    padding: 0 15px 15px 15px;
 }
 
 .basket_title {
@@ -452,6 +453,13 @@ url("../resources/images/pizza.jpg") no-repeat 50% 65%;
 .basket_item_func {
     display: flex;
     align-items: center;
+    width: 20%;
+    justify-content: space-between;
+}
+
+.basket_item_price {
+    width: 5%;
+    text-align: right;
 }
 
 .basket_btn {

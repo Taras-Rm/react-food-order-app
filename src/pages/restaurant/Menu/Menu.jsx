@@ -3,15 +3,16 @@ import Basket from './Basket';
 import MenuItem from './MenuItem';
 
 const Menu = (props) => {
+  // Відобразити список страв ресторану в меню
   const foodList = props.menu.map((item, index) => (
-    <MenuItem key={`${index}_${item.name}`} item={item} />
+    <MenuItem restaurantId={props.restaurantId} key={`${index}_${item.name}`} item={item} />
   ));
 
   return (
     <div className={`${props.activeItem === null ? '' : 'hidden'} order`}>
       <div className="wrapper">
         <div className="foodlist">
-          {/* Відобразити всю їжу в ресторані */}
+          {/* Відобразити список страв в ресторані (меню) */}
           {foodList}
         </div>
         <Basket />
