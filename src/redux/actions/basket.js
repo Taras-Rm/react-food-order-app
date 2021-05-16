@@ -1,18 +1,19 @@
-export const addItem = (name, count, price, restaurantId) => {
+export const addItem = ({ name, newCount, price, restaurantId }) => {
   return {
     type: 'ADD_ITEM',
     itemName: name,
-    itemCount: count,
+    itemCount: newCount,
     itemPrice: price,
     itemRestaurantId: restaurantId,
   };
 };
 
-export const deleteItem = (name, count, restaurantId) => {
+export const deleteItem = ({ name, newCount, price, restaurantId }) => {
   return {
     type: 'DELETE_ITEM',
     itemName: name,
-    itemCount: count,
+    itemCount: newCount,
+    itemPrice: price,
     itemRestaurantId: restaurantId,
   };
 };

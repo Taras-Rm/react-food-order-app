@@ -2,6 +2,8 @@ const initialState = {
   // Масив об'єктів
   items: [],
 
+  totalPrice: 0,
+
   item: {
     name: '',
     count: 0,
@@ -18,13 +20,15 @@ const basket = (state = initialState, action) => {
           (item) => item.name === action.itemName && item.restaurantId === action.itemRestaurantId,
         )
       ) {
+        let newItems = state.items.map((item) =>
+          item.name === action.itemName && item.restaurantId === action.itemRestaurantId
+            ? { ...item, count: action.itemCount, price: item.price + action.itemPrice }
+            : item,
+        );
         return {
           ...state,
-          items: state.items.map((item) =>
-            item.name === action.itemName && item.restaurantId === action.itemRestaurantId
-              ? { ...item, count: action.itemCount }
-              : item,
-          ),
+          items: newItems,
+          totalPrice: newItems.reduce((sum, elem) => sum + elem.price, 0),
         };
       } else {
         let newItem = {
@@ -36,17 +40,20 @@ const basket = (state = initialState, action) => {
         return {
           ...state,
           items: [...state.items, newItem],
+          totalPrice: [...state.items, newItem].reduce((sum, elem) => sum + elem.price, 0),
         };
       }
     }
     case 'DELETE_ITEM': {
+      const newItems = state.items.map((item) =>
+        item.name === action.itemName && item.restaurantId === action.itemRestaurantId
+          ? { ...item, count: action.itemCount, price: item.price - action.itemPrice }
+          : item,
+      );
       return {
         ...state,
-        items: state.items.map((item) =>
-          item.name === action.itemName && item.restaurantId === action.itemRestaurantId
-            ? { ...item, count: action.itemCount }
-            : item,
-        ),
+        items: newItems,
+        totalPrice: newItems.reduce((sum, elem) => sum + elem.price, 0),
       };
     }
     default:

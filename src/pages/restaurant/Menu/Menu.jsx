@@ -1,11 +1,30 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { addItem, deleteItem } from '../../../redux/actions/basket';
 import Basket from './Basket';
 import MenuItem from './MenuItem';
 
 const Menu = (props) => {
   // Відобразити список страв ресторану в меню
+  const dispatch = useDispatch();
+
+  // Передається в кожну страву з меню (для того щоб не створювати багато dispatch)
+  const onClickAddItem = (obj) => {
+    dispatch(addItem(obj));
+  };
+
+  const onClickDeleteItem = (obj) => {
+    dispatch(deleteItem(obj));
+  };
+
   const foodList = props.menu.map((item, index) => (
-    <MenuItem restaurantId={props.restaurantId} key={`${index}_${item.name}`} item={item} />
+    <MenuItem
+      onClickDeleteItem={onClickDeleteItem}
+      onClickAddItem={onClickAddItem}
+      restaurantId={props.restaurantId}
+      key={`${index}_${item.name}`}
+      item={item}
+    />
   ));
 
   return (

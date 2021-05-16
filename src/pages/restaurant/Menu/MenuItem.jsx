@@ -3,20 +3,30 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addItem, deleteItem } from '../../../redux/actions/basket';
 
 const MenuItem = (props) => {
-  const dispatch = useDispatch();
-
   const [foodCount, setFoodCount] = React.useState(0);
 
   const onClickPlusFoodCount = (index, name, price) => {
     let newCount = foodCount + index;
     setFoodCount(newCount);
-    dispatch(addItem(name, newCount, price, props.restaurantId));
+    const obj = {
+      name,
+      newCount,
+      price,
+      restaurantId: props.restaurantId,
+    };
+    props.onClickAddItem(obj);
   };
 
-  const onClickMinusFoodCount = (index, name) => {
+  const onClickMinusFoodCount = (index, name, price) => {
     let newCount = foodCount - index;
     setFoodCount(newCount);
-    dispatch(deleteItem(name, newCount, props.restaurantId));
+    const obj = {
+      name,
+      newCount,
+      price,
+      restaurantId: props.restaurantId,
+    };
+    props.onClickDeleteItem(obj);
   };
 
   return (
@@ -31,7 +41,7 @@ const MenuItem = (props) => {
         <div className="food_item_btns">
           <div
             className={`${foodCount === 0 ? 'minus' : ''} food_item_btn`}
-            onClick={() => onClickMinusFoodCount(1, props.item.name)}>
+            onClick={() => onClickMinusFoodCount(1, props.item.name, props.item.price)}>
             -
           </div>
           <div
