@@ -10,7 +10,6 @@ export const setLoaded = (payload) => {
 
 // Асинхроний запит для отримання ресторанів і їх запис в Redux
 export const fetchRestaurants = (category) => (dispatch) => {
-  console.log(category);
   dispatch(setLoaded(false));
   axios
     .get(

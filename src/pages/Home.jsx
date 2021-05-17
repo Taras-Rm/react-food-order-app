@@ -8,6 +8,8 @@ import RestaurantItem from './RestaurantItem/RestaurantItem';
 import { chooseRestaurant } from '../redux/actions/restaurant';
 import LoadingRestaurantItem from './RestaurantItem/LoadingRestaurantItem';
 import { fetchRestaurants } from '../redux/actions/restaurants';
+import { fetchRestaurant } from '../redux/actions/restaurant';
+
 import { setCategory } from '../redux/actions/filters';
 
 const Home = (props) => {
@@ -33,10 +35,7 @@ const Home = (props) => {
 
   // Маплю масив з ресторанами
   const restaurantsList = restaurants.map((restaurant) => (
-    <NavLink
-      onClick={() => dispatch(chooseRestaurant(restaurant.id))}
-      key={restaurant.id}
-      to={`/restaurant/${restaurant.id}`}>
+    <NavLink key={restaurant.id} to={`/restaurant/${restaurant.id}`}>
       <RestaurantItem restaurant={restaurant} />
     </NavLink>
   ));
