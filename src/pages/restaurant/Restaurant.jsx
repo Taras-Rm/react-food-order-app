@@ -5,6 +5,7 @@ import Reviews from './Reviews/Reviews';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchRestaurant } from '../../redux/actions/restaurant';
 import { withRouter } from 'react-router';
+import LoadingImg from '../../components/LoadingImg';
 
 const Restaurant = (props) => {
   const dispatch = useDispatch();
@@ -25,6 +26,7 @@ const Restaurant = (props) => {
     //}) no-repeat 50% 65%`;
   }, []);
 
+  // Перевірка на те чи завантажено ресторан
   return isLoaded ? (
     <div>
       <div className="mainbanner">
@@ -62,7 +64,7 @@ const Restaurant = (props) => {
       <Reviews activeItem={activeItem} />
     </div>
   ) : (
-    <div>hi </div>
+    <LoadingImg />
   );
 };
 
