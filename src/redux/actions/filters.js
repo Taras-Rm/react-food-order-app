@@ -6,11 +6,12 @@ export const setCategory = (index, value) => {
   };
 };
 
-export const setValute = (id, name, curs) => {
+export const setValute = (id, name, curs, symbol) => {
   return {
     type: 'SET_VALUTE',
     valuteId: id,
     valuteName: name,
-    valueCurs: curs,
+    valuteCurs: curs,
+    valuteSymbol: symbol,
   };
 };

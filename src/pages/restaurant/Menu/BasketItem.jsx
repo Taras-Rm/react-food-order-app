@@ -24,7 +24,9 @@ const BasketItem = (props) => {
           +
         </div>
       </div>
-      <span className="basket_item_price">{props.item.price}</span>
+      <span className="basket_item_price">{`${(props.item.price * props.valute.curs).toFixed(1)} ${
+        props.valute.symbol
+      }`}</span>
     </div>
   );
 };

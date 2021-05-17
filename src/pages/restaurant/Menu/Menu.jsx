@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addItem, deleteItem } from '../../../redux/actions/basket';
 import Basket from './Basket';
 import MenuItem from './MenuItem';
@@ -7,6 +7,8 @@ import MenuItem from './MenuItem';
 const Menu = (props) => {
   // Відобразити список страв ресторану в меню
   const dispatch = useDispatch();
+  // Активна валюта
+  const valute = useSelector((state) => state.filters.activeValute);
 
   // Передається в кожну страву з меню (для того щоб не створювати багато dispatch)
   const onClickAddItem = (obj) => {
@@ -19,6 +21,7 @@ const Menu = (props) => {
 
   const foodList = props.menu.map((item, index) => (
     <MenuItem
+      valute={valute}
       onClickDeleteItem={onClickDeleteItem}
       onClickAddItem={onClickAddItem}
       restaurantId={props.restaurantId}
@@ -34,7 +37,7 @@ const Menu = (props) => {
           {/* Відобразити список страв в ресторані (меню) */}
           {foodList}
         </div>
-        <Basket />
+        <Basket valute={valute} />
       </div>
     </div>
   );

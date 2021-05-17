@@ -14,8 +14,8 @@ const Header = (props) => {
   });
   //const [activeValute, setActiveValute] = React.useState(0);
 
-  const onSelectValute = (id, name, curs) => {
-    dispatch(setValute(id, name, curs));
+  const onSelectValute = (id, name, curs, symbol) => {
+    dispatch(setValute(id, name, curs, symbol));
   };
 
   console.log(allValutesInfo);
@@ -43,7 +43,7 @@ const Header = (props) => {
               allValutesInfo.valutes.map((valute, index) => (
                 <li
                   key={`${valute.name}_${valute.id}`}
-                  onClick={() => onSelectValute(valute.id, valute.name, valute.curs)}
+                  onClick={() => onSelectValute(valute.id, valute.name, valute.curs, valute.symbol)}
                   className={`${
                     allValutesInfo.activeValute.id === valute.id ? 'active_valute' : ''
                   } header_valute`}>

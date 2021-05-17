@@ -34,7 +34,9 @@ const MenuItem = (props) => {
       <div className="food_info">
         <h3 className="food_info_title">{props.item.name}</h3>
         <div className="food_info_category">{props.item.ingradients.join(', ')}</div>
-        <span className="food_price">{props.item.price}</span>
+        <span className="food_price">{`${(props.item.price * props.valute.curs).toFixed(1)} ${
+          props.valute.symbol
+        }`}</span>
       </div>
       <div className="food_item_functionality">
         <span className="food_item_count"> {foodCount} </span>
