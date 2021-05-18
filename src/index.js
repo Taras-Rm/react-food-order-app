@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 
 import './scss/app.scss';
 import './scss/loading.scss';
+import './scss/rating.scss';
 
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
