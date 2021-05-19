@@ -8,7 +8,7 @@
                 "id": 2,
                 "value": "vegan"
             },
-            "raiting": 4,
+            "rating": 3,
             "food": [
                 {
                     "name": "Chicken tikka",
@@ -47,7 +47,7 @@
                 "id": 3,
                 "value": "steak"
             },
-            "raiting": 3,
+            "rating": 5,
             "food": [
                 {
                     "name": "Mlynec",
@@ -76,7 +76,7 @@
                 "id": 4,
                 "value": "seafood"
             },
-            "raiting": 4,
+            "rating": 4,
             "food": [
                 {
                     "name": "Tikka",
@@ -110,7 +110,7 @@
                 "id": 4,
                 "value": "seafood"
             },
-            "raiting": 4,
+            "rating": 2,
             "food": [
                 {
                     "name": "Tikka",
@@ -144,7 +144,7 @@
                 "id": 1,
                 "value": "sushi"
             },
-            "raiting": 4,
+            "rating": 5,
             "food": [
                 {
                     "name": "Tikka",
@@ -178,7 +178,7 @@
                 "id": 3,
                 "value": "steak"
             },
-            "raiting": 4,
+            "rating": 3,
             "food": [
                 {
                     "name": "Tikka",

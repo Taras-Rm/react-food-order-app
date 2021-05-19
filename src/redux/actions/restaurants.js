@@ -15,8 +15,8 @@ export const fetchRestaurants = (category) => (dispatch) => {
     .get(
       // Перевірка на те чи показувати всі категорії чи якусь обрану
       category === null
-        ? 'http://localhost:3001/restaurants?_sort=raiting&_order=desc'
-        : `http://localhost:3001/restaurants?foodType.id=${category}`,
+        ? '/restaurants?_sort=raiting&_order=desc'
+        : `/restaurants?foodType.id=${category}`,
     )
     .then((response) => {
       dispatch(setRestaurants(response.data));

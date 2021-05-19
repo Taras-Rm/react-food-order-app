@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Rating = () => {
+const Rating = ({ ratingNum }) => {
   function initRatings() {
     let ratings = document.querySelectorAll('.rating');
 
@@ -48,7 +48,7 @@ const Rating = () => {
           <input type="radio" className="rating__item" name="reting__item" />
         </div>
       </div>
-      <div className="rating__value">2</div>
+      <div className="rating__value">{ratingNum}</div>
     </div>
   );
 };
