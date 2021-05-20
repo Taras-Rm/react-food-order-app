@@ -74,10 +74,6 @@
 //     background-size: 35px 35px;
 // }
 
-.header_back_btn span {
-    margin-left: 38px;
-}
-
 /////
 
 .header_logo {
@@ -91,8 +87,9 @@
     text-decoration: none;
     text-transform: uppercase;
     font-weight: 600;
-    margin-left: 290px;
+    margin-left: 328px;
 }
+
 
 .header_valutes__list {
     display: flex;
@@ -578,6 +575,11 @@ url("../resources/images/pizza.jpg") no-repeat 50% 65%;
     border: 2px solid rgb(173, 173, 173);
     margin-bottom: 10px;
 }
+
+.review_form_textarea.validate {
+    border: 2px solid red;
+}
+
 
 .review_form_raiting {
     display: flex;

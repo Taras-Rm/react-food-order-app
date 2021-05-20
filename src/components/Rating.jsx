@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
 
-const RatingSet = ({ initialRating, outRating }) => {
+const RatingSet = ({ initialRating, outRating, onChangeRate }) => {
   const [ratingValue, setValue] = React.useState(initialRating);
   const [ratingHover, setHover] = React.useState(null);
 
@@ -9,6 +9,8 @@ const RatingSet = ({ initialRating, outRating }) => {
     setValue(value);
     outRating(value);
   };
+
+  const setNewRating2 = () => {};
 
   return (
     <div className="rating">
@@ -19,9 +21,10 @@ const RatingSet = ({ initialRating, outRating }) => {
             <input
               className="star_radio"
               type="radio"
-              name="rating"
+              name="rate"
               value={value}
-              onClick={() => setNewRating(value)}></input>
+              onClick={() => setNewRating(value)}
+              onChange={onChangeRate}></input>
             <FaStar
               onMouseEnter={() => setHover(value)}
               onMouseLeave={() => setHover(null)}

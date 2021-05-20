@@ -5,6 +5,8 @@ import { addItem, deleteItem } from '../../../redux/actions/basket';
 const MenuItem = (props) => {
   const [foodCount, setFoodCount] = React.useState(0);
 
+  //console.log(props.item);
+
   const onClickPlusFoodCount = (index, name, price) => {
     let newCount = foodCount + index;
     setFoodCount(newCount);
