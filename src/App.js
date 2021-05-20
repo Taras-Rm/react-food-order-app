@@ -3,6 +3,7 @@ import React from 'react';
 import { Route } from 'react-router';
 
 import Header from './components/Header';
+import Rating from './components/Rating';
 import Home from './pages/Home';
 import Restaurant from './pages/restaurant/Restaurant';
 import { fetchRestaurants } from './redux/actions/restaurants';

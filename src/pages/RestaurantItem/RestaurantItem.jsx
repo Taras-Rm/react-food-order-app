@@ -1,6 +1,7 @@
 import React from 'react';
-import Rating from '../../components/Rating';
+import { RatingRead } from '../../components/Rating';
 
+//React.createElement(Rating)
 const RestaurantItem = ({ restaurant }) => {
   console.log(restaurant);
   return (
@@ -11,8 +12,8 @@ const RestaurantItem = ({ restaurant }) => {
       <div className="restaurant__item_info">
         <h3 className="restaurant__item_title">{restaurant.name}</h3>
         <div className="restaurant__item_category">{restaurant.foodType.value}</div>
-        {/* <div className="restaurant__item_raiting">{restaurant.raiting}</div> */}
-        <Rating ratingNum={restaurant.rating} />
+        {/* <Rating initialRating={restaurant.rating} readonly={true} /> */}
+        <RatingRead initialRating={restaurant.rating} />
       </div>
     </div>
   );

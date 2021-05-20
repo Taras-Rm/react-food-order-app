@@ -1,31 +1,26 @@
 import React from 'react';
+import { RatingSet } from '../../../components/Rating';
+import ReviewItem from './ReviewItem';
 
-const Reviews = (props) => {
+const Reviews = ({ reviews, activeItem }) => {
+  const reviewsList = reviews.map((item, index) => (
+    <ReviewItem item={item} key={`${item.reviewerName}_${index}`} />
+  ));
+
+  const sattedRating = (rate) => {
+    console.log(rate);
+  };
+
   return (
-    <div className={`${props.activeItem === 1 ? '' : 'hidden'} reviews`}>
+    <div className={`${activeItem === 1 ? '' : 'hidden'} reviews`}>
       <div className="wrapper">
-        <div className="reviewsList">
-          <div className="review_item">
-            <div className="review_item_info">
-              <h3 className="review_item_name">Antony</h3>
-              <div className="review_item_text">Not bad</div>
-            </div>
-            <div className="review_item_raiting">5</div>
-          </div>
-          <div className="review_item">
-            <div className="review_item_info">
-              <h3 className="review_item_name">Sam</h3>
-              <div className="review_item_text">Not burgers</div>
-            </div>
-            <div className="review_item_raiting">3</div>
-          </div>
-        </div>
+        <div className="reviewsList">{reviewsList}</div>
         <div className="review_form">
           <h2 className="review_form_title">Leav your review</h2>
           <textarea className="review_form_textarea"></textarea>
           <div className="review_form_raiting">
             <span>Raiting</span>
-            <div className="set_raiting">5</div>
+            <RatingSet initialRating={null} outRating={sattedRating} />
           </div>
           <div>
             <button className="review_form_btn" type="submit">

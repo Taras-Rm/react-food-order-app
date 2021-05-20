@@ -1,56 +1,61 @@
 import React from 'react';
+import { FaStar } from 'react-icons/fa';
 
-const Rating = ({ ratingNum }) => {
-  function initRatings() {
-    let ratings = document.querySelectorAll('.rating');
+const RatingSet = ({ initialRating, outRating }) => {
+  const [ratingValue, setValue] = React.useState(initialRating);
+  const [ratingHover, setHover] = React.useState(null);
 
-    let ratingActive, ratingValue;
-
-    for (let i = 0; i < ratings.length; i++) {
-      const rating = ratings[i];
-      initRating(rating);
-    }
-
-    function initRating(rating) {
-      initRatingVars(rating);
-
-      setRatingActiveWidth();
-
-      // if (rating.classList.contains('rating_set')) {
-      //   setRating(rating);
-      // }
-    }
-
-    function initRatingVars(rating) {
-      ratingActive = rating.querySelector('.rating__active');
-      ratingValue = rating.querySelector('.rating__value');
-    }
-
-    function setRatingActiveWidth(index = ratingValue.innerHTML) {
-      const ratingActiveWidth = index / 0.05;
-      ratingActive.style.width = `${ratingActiveWidth}%`;
-    }
-  }
-
-  React.useEffect(() => {
-    initRatings();
-  }, []);
+  const setNewRating = (value) => {
+    setValue(value);
+    outRating(value);
+  };
 
   return (
     <div className="rating">
-      <div className="rating__body">
-        <div className="rating__active"></div>
-        <div className="rating__items">
-          <input type="radio" className="rating__item" name="reting__item" />
-          <input type="radio" className="rating__item" name="reting__item" />
-          <input type="radio" className="rating__item" name="reting__item" />
-          <input type="radio" className="rating__item" name="reting__item" />
-          <input type="radio" className="rating__item" name="reting__item" />
-        </div>
-      </div>
-      <div className="rating__value">{ratingNum}</div>
+      {[...Array(5)].map((_, index) => {
+        const value = index + 1;
+        return (
+          <label>
+            <input
+              className="star_radio"
+              type="radio"
+              name="rating"
+              value={value}
+              onClick={() => setNewRating(value)}></input>
+            <FaStar
+              onMouseEnter={() => setHover(value)}
+              onMouseLeave={() => setHover(null)}
+              size={20}
+              color={`${value <= (ratingHover || ratingValue) ? '#ffc107' : 'e4e5e9'}`}
+              className="star"
+            />
+          </label>
+        );
+      })}
+      <span className="rating_value">{ratingHover || ratingValue}</span>
     </div>
   );
 };
 
-export default Rating;
+const RatingRead = ({ initialRating }) => {
+  return (
+    <div className="rating">
+      {[...Array(5)].map((_, index) => {
+        const value = index + 1;
+        return (
+          <label>
+            <input className="star_radio" type="radio" name="rating" value={value}></input>
+            <FaStar
+              color={`${value <= initialRating ? '#ffc107' : 'e4e5e9'}`}
+              size={20}
+              className="star"
+            />
+          </label>
+        );
+      })}
+      <span className="rating_value">{initialRating}</span>
+    </div>
+  );
+};
+
+export { RatingRead, RatingSet };

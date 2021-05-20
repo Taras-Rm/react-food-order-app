@@ -26,6 +26,8 @@ const Restaurant = (props) => {
     //}) no-repeat 50% 65%`;
   }, []);
 
+  console.log(activeRestourant);
+
   // Перевірка на те чи завантажено ресторан
   return isLoaded ? (
     <div>
@@ -61,7 +63,7 @@ const Restaurant = (props) => {
         activeItem={activeItem}
         menu={activeRestourant.food}
       />
-      <Reviews activeItem={activeItem} />
+      <Reviews activeItem={activeItem} reviews={activeRestourant.reviews} />
     </div>
   ) : (
     <LoadingImg />
