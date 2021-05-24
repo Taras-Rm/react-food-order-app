@@ -18,20 +18,12 @@ const Restaurant = (props) => {
   React.useEffect(() => {
     // Отримую потрібний ресторан (об'єкт) по ID, яке беру з URL
     dispatch(fetchRestaurant(props.match.params.id));
-
-    //document.querySelector(
-    //  '.mainbanner',
-    //).style.background = `linear-gradient(rgba(0, 0, 0, -0.3), rgba(0, 0, 0, 0.7)), url(${
-    //  isLoaded ? activeRestourant.imageUrl : ''
-    //}) no-repeat 50% 65%`;
-  }, []);
-
-  console.log(activeRestourant);
+  }, [props]);
 
   // Перевірка на те чи завантажено ресторан
   return isLoaded ? (
     <div>
-      <div className="mainbanner">
+      <div className="mainbanner" rest_fon={activeRestourant.imageUrl}>
         <div className="mainbanner_headers">
           <h1 className="mainbanner__header_one">{activeRestourant.name}</h1>
           <h2 className="mainbanner__header_two">{activeRestourant.foodType.value}</h2>

@@ -130,10 +130,10 @@
 
 /* ////////////////////////////////////////////https://bufet.net/uploads/posts/2017-05/1495325512_steyk-iz-govyadiny.jpg//// */
 
-$img-url: linear-gradient(rgba(0, 0, 0, -0.3),
-    rgba(0, 0, 0, 0.7)),
+$img-url: linear-gradient(rgba(0, 0, 0, -0.3), rgba(0, 0, 0, 0.7)),
 url("../resources/images/pizza.jpg") no-repeat 50% 65%;
 
+//"../resources/images/pizza.jpg"
 .mainbanner {
     background: $img-url;
 

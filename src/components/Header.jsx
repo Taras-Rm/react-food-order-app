@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { setValute } from '../redux/actions/filters';
 
 import { useDispatch, useSelector } from 'react-redux';
@@ -25,16 +25,15 @@ const Header = (props) => {
   return (
     <div className="header">
       <div className="wrapper">
-        <NavLink
+        <Link
           to="/"
           className={`${
             path.indexOf('restaurant') !== -1 ? '' : 'header_back_btn_visab'
-          } header_back_btn_link`}
-          href="#h">
+          } header_back_btn_link`}>
           <div className="header_back_btn">
             <span>Restaurants</span>
           </div>
-        </NavLink>
+        </Link>
 
         <div className="header_logo header_logo__text">any food</div>
         <div className="header_valutes">
