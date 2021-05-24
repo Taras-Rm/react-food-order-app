@@ -3,7 +3,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addItem, deleteItem } from '../../../redux/actions/basket';
 
 const MenuItem = (props) => {
-  const [foodCount, setFoodCount] = React.useState(0);
+  console.log(props.basketItem);
+  const [foodCount, setFoodCount] = React.useState(
+    props.basketItem.count ? props.basketItem.count : 0,
+  );
 
   //console.log(props.item);
 

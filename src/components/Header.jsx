@@ -3,6 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import { setValute } from '../redux/actions/filters';
 
 import { useDispatch, useSelector } from 'react-redux';
+import { clearBasket } from '../redux/actions/basket';
 
 const Header = (props) => {
   const dispatch = useDispatch();
@@ -18,6 +19,10 @@ const Header = (props) => {
     dispatch(setValute(id, name, curs, symbol));
   };
 
+  const onRestaurantsBtn = () => {
+    dispatch(clearBasket());
+  };
+
   console.log(allValutesInfo);
   // Слідкую за URL
   const path = props.location.pathname;
@@ -27,6 +32,7 @@ const Header = (props) => {
       <div className="wrapper">
         <Link
           to="/"
+          onClick={() => onRestaurantsBtn()}
           className={`${
             path.indexOf('restaurant') !== -1 ? '' : 'header_back_btn_visab'
           } header_back_btn_link`}>

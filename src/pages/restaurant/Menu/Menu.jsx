@@ -10,6 +10,8 @@ const Menu = (props) => {
   // Активна валюта
   const valute = useSelector((state) => state.filters.activeValute);
 
+  const basketItems = useSelector((state) => state.basket.items);
+
   // Передається в кожну страву з меню (для того щоб не створювати багато dispatch)
   const onClickAddItem = (obj) => {
     dispatch(addItem(obj));
@@ -27,6 +29,12 @@ const Menu = (props) => {
       restaurantId={props.restaurantId}
       key={`${index}_${item.name}`}
       item={item}
+      // Передаю кількість доданої їжі, якщо вона додана
+      basketItem={
+        basketItems.find((basketItem) => basketItem.name === item.name)
+          ? basketItems.find((basketItem) => basketItem.name === item.name)
+          : ''
+      }
     />
   ));
 

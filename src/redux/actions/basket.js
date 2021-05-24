@@ -17,3 +17,9 @@ export const deleteItem = ({ name, newCount, price, restaurantId }) => {
     itemRestaurantId: restaurantId,
   };
 };
+
+export const clearBasket = () => {
+  return {
+    type: 'CLEAR_BASKET',
+  };
+};

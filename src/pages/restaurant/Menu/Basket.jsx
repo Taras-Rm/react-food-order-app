@@ -15,10 +15,17 @@ const Basket = (props) => {
     }
   });
 
+  console.log(items);
+
   return (
     <div className="basket">
       <div className="basket_title">Basket</div>
-      <div className="basket_items">{basketItems}</div>
+      {basketItems.length === 0 ? (
+        <div className="basket_items empty">Basket is empty !</div>
+      ) : (
+        <div className="basket_items">{basketItems}</div>
+      )}
+
       <div className="basket_total">
         <div className="basket_total_item">
           <span className="basket_total_item_f">Delivery costs:</span>

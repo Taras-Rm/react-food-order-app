@@ -415,6 +415,8 @@ url("../resources/images/pizza.jpg") no-repeat 50% 65%;
 /* /////////////////// */
 
 .basket {
+    display: flex;
+    flex-direction: column;
     height: fit-content;
     background-color: bisque;
     width: 48%;
@@ -432,6 +434,10 @@ url("../resources/images/pizza.jpg") no-repeat 50% 65%;
     border-bottom: 2px solid black;
     padding-bottom: 10px;
     margin-bottom: 10px;
+}
+
+.basket_items.empty {
+    font-size: 20px;
 }
 
 .basket_item {

@@ -45,15 +45,24 @@ const basket = (state = initialState, action) => {
       }
     }
     case 'DELETE_ITEM': {
-      const newItems = state.items.map((item) =>
-        item.name === action.itemName && item.restaurantId === action.itemRestaurantId
-          ? { ...item, count: action.itemCount, price: item.price - action.itemPrice }
-          : item,
-      );
+      const newItems = state.items
+        .map((item) =>
+          item.name === action.itemName && item.restaurantId === action.itemRestaurantId
+            ? { ...item, count: action.itemCount, price: item.price - action.itemPrice }
+            : item,
+        )
+        .filter((item) => item.count !== 0);
       return {
         ...state,
         items: newItems,
         totalPrice: newItems.reduce((sum, elem) => sum + elem.price, 0),
+      };
+    }
+    case 'CLEAR_BASKET': {
+      return {
+        ...state,
+        items: [],
+        totalPrice: 0,
       };
     }
     default:
