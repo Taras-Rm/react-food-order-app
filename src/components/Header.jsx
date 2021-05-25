@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 import { setValute } from '../redux/actions/filters';
 
 import { useDispatch, useSelector } from 'react-redux';
@@ -13,7 +13,6 @@ const Header = (props) => {
       valutes: state.filters.valutes,
     };
   });
-  //const [activeValute, setActiveValute] = React.useState(0);
 
   const onSelectValute = (id, name, curs, symbol) => {
     dispatch(setValute(id, name, curs, symbol));
@@ -23,14 +22,13 @@ const Header = (props) => {
     dispatch(clearBasket());
   };
 
-  console.log(allValutesInfo);
   // Слідкую за URL
   const path = props.location.pathname;
 
   return (
     <div className="header">
       <div className="wrapper">
-        <Link
+        <NavLink
           to="/"
           onClick={() => onRestaurantsBtn()}
           className={`${
@@ -39,7 +37,7 @@ const Header = (props) => {
           <div className="header_back_btn">
             <span>Restaurants</span>
           </div>
-        </Link>
+        </NavLink>
 
         <div className="header_logo header_logo__text">any food</div>
         <div className="header_valutes">

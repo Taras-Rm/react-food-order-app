@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useSelector } from 'react-redux';
 
-function MainBanner() {
+const MainBanner = () => {
   const countOfRestourances = useSelector((state) => state.restaurants.items.length);
   return (
     <div className="mainbanner">
@@ -12,6 +12,6 @@ function MainBanner() {
       </div>
     </div>
   );
-}
+};
 
 export default MainBanner;

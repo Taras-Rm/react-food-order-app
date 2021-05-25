@@ -1,5 +1,5 @@
 import React from 'react';
-import { RatingRead, RatingSet } from '../../../components/Rating';
+import { RatingRead } from '../../../components/Rating';
 
 const ReviewItem = ({ item }) => {
   return (

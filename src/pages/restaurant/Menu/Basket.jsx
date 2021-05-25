@@ -20,10 +20,10 @@ const Basket = (props) => {
           onClickAddItem={props.onClickAddItem}
         />
       );
+    } else {
+      return null;
     }
   });
-
-  console.log(items);
 
   return (
     <div className="basket">

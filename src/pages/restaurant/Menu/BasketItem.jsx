@@ -25,7 +25,6 @@ const BasketItem = (props) => {
     props.onClickAddItem(obj);
   };
 
-  console.log(props.item);
   return (
     <div className="basket_item">
       <span className="basket_item_name">{props.item.name}</span>

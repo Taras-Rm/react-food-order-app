@@ -7,17 +7,14 @@ const RatingSet = ({ initialRating, outRating, onChangeRate }) => {
 
   const setNewRating = (value) => {
     setValue(value);
-    outRating(value);
   };
-
-  const setNewRating2 = () => {};
 
   return (
     <div className="rating">
       {[...Array(5)].map((_, index) => {
         const value = index + 1;
         return (
-          <label>
+          <label key={index}>
             <input
               className="star_radio"
               type="radio"
@@ -46,7 +43,7 @@ const RatingRead = ({ initialRating }) => {
       {[...Array(5)].map((_, index) => {
         const value = index + 1;
         return (
-          <label>
+          <label key={index}>
             <input className="star_radio" type="radio" name="rating" value={value}></input>
             <FaStar
               color={`${value <= initialRating ? '#ffc107' : 'e4e5e9'}`}

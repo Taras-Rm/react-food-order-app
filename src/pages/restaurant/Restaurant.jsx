@@ -18,7 +18,7 @@ const Restaurant = (props) => {
   React.useEffect(() => {
     // Отримую потрібний ресторан (об'єкт) по ID, яке беру з URL
     dispatch(fetchRestaurant(props.match.params.id));
-  }, [props]);
+  }, [props, dispatch]);
 
   // Перевірка на те чи завантажено ресторан
   return isLoaded ? (

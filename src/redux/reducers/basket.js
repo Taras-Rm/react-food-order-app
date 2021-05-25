@@ -2,13 +2,8 @@ const initialState = {
   // Масив об'єктів
   items: [],
 
+  // Загальна вартість
   totalPrice: 0,
-
-  item: {
-    name: '',
-    count: 0,
-    price: 10,
-  },
 };
 
 const basket = (state = initialState, action) => {

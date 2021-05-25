@@ -5,10 +5,8 @@ import MainBanner from '../components/MainBanner';
 import Categories from '../components/Categories';
 import { NavLink } from 'react-router-dom';
 import RestaurantItem from './RestaurantItem/RestaurantItem';
-import { chooseRestaurant } from '../redux/actions/restaurant';
 import LoadingRestaurantItem from './RestaurantItem/LoadingRestaurantItem';
 import { fetchRestaurants } from '../redux/actions/restaurants';
-import { fetchRestaurant } from '../redux/actions/restaurant';
 
 import { setCategory } from '../redux/actions/filters';
 
@@ -31,7 +29,7 @@ const Home = (props) => {
   React.useEffect(() => {
     dispatch(fetchRestaurants(activeCategory.value));
     //  activeCategory - ставлю, щоб була реакція на зміни
-  }, [activeCategory]);
+  }, [activeCategory, dispatch]);
 
   // Маплю масив з ресторанами
   const restaurantsList = restaurants.map((restaurant) => (
@@ -56,7 +54,7 @@ const Home = (props) => {
             ? restaurantsList
             : Array(3)
                 .fill(0)
-                .map((item, index) => <LoadingRestaurantItem key={index} />)}
+                .map((_, index) => <LoadingRestaurantItem key={index} />)}
         </div>
       </div>
     </div>

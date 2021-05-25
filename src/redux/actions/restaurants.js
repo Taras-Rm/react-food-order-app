@@ -1,5 +1,4 @@
 import axios from 'axios';
-import Categories from '../../components/Categories';
 
 export const setLoaded = (payload) => {
   return {

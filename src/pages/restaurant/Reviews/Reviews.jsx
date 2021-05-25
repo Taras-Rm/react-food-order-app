@@ -7,9 +7,6 @@ const Reviews = ({ reviews, activeItem }) => {
   const reviewsList = reviews.map((item, index) => (
     <ReviewItem item={item} key={`${item.reviewerName}_${index}`} />
   ));
-  const sattedRating = (rate) => {
-    console.log(rate);
-  };
 
   const validate = (values) => {
     const errors = {};
@@ -53,15 +50,11 @@ const Reviews = ({ reviews, activeItem }) => {
             value={formik.values.comment}></textarea>
           <div className="review_form_raiting">
             <span>Raiting</span>
-            <RatingSet
-              initialRating={formik.values.rate}
-              onChangeRate={formik.handleChange}
-              outRating={sattedRating}
-            />
+            <RatingSet initialRating={formik.values.rate} onChangeRate={formik.handleChange} />
             {`${formik.errors.rate ? 'Rate is required' : ''}`}
           </div>
           <div>
-            <button type="submit" className="review_form_btn" type="submit">
+            <button type="submit" className="review_form_btn">
               Publish review
             </button>
           </div>
