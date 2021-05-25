@@ -45,7 +45,11 @@ const Menu = (props) => {
           {/* Відобразити список страв в ресторані (меню) */}
           {foodList}
         </div>
-        <Basket valute={valute} />
+        <Basket
+          valute={valute}
+          onClickDeleteItem={onClickDeleteItem}
+          onClickAddItem={onClickAddItem}
+        />
       </div>
     </div>
   );

@@ -1,18 +1,9 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { addItem, deleteItem } from '../../../redux/actions/basket';
 
 const MenuItem = (props) => {
-  console.log(props.basketItem);
-  const [foodCount, setFoodCount] = React.useState(
-    props.basketItem.count ? props.basketItem.count : 0,
-  );
-
-  //console.log(props.item);
-
   const onClickPlusFoodCount = (index, name, price) => {
-    let newCount = foodCount + index;
-    setFoodCount(newCount);
+    let oldCount = props.basketItem.count ? props.basketItem.count : 0;
+    let newCount = oldCount + index;
     const obj = {
       name,
       newCount,
@@ -23,8 +14,8 @@ const MenuItem = (props) => {
   };
 
   const onClickMinusFoodCount = (index, name, price) => {
-    let newCount = foodCount - index;
-    setFoodCount(newCount);
+    let oldCount = props.basketItem.count ? props.basketItem.count : 0;
+    let newCount = oldCount - index;
     const obj = {
       name,
       newCount,
@@ -44,10 +35,13 @@ const MenuItem = (props) => {
         }`}</span>
       </div>
       <div className="food_item_functionality">
-        <span className="food_item_count"> {foodCount} </span>
+        <span className="food_item_count">
+          {/* Перевірка чи є якась кількість обраних страв */}
+          {!props.basketItem.count ? 0 : props.basketItem.count}
+        </span>
         <div className="food_item_btns">
           <div
-            className={`${foodCount === 0 ? 'minus' : ''} food_item_btn`}
+            className={`${!props.basketItem.count ? 'minus' : ''} food_item_btn`}
             onClick={() => onClickMinusFoodCount(1, props.item.name, props.item.price)}>
             -
           </div>

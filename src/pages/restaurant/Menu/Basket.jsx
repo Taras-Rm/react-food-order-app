@@ -11,7 +11,15 @@ const Basket = (props) => {
   // Перевірка чи не нуль, щоб коли 0, то не відображати тієї страви в корзині
   const basketItems = items.map((item, index) => {
     if (item.count !== 0) {
-      return <BasketItem key={`${item}_${index}`} item={item} valute={props.valute} />;
+      return (
+        <BasketItem
+          key={`${item}_${index}`}
+          item={item}
+          valute={props.valute}
+          onClickDeleteItem={props.onClickDeleteItem}
+          onClickAddItem={props.onClickAddItem}
+        />
+      );
     }
   });
 

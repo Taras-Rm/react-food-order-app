@@ -1,26 +1,42 @@
 import React from 'react';
 
 const BasketItem = (props) => {
-  const [count, setCount] = React.useState(0);
-
-  const onMinusClick = (index) => {
-    let newCunt = count - index;
-    setCount(newCunt);
+  const onMinusClick = (index, name) => {
+    let oldCount = props.item.count ? props.item.count : 0;
+    let newCount = oldCount - index;
+    const obj = {
+      name,
+      newCount,
+      price: props.item.price / props.item.count,
+      restaurantId: props.item.restaurantId,
+    };
+    props.onClickDeleteItem(obj);
   };
 
-  const onPlusClick = (index) => {
-    let newCunt = count + index;
-    setCount(newCunt);
+  const onPlusClick = (index, name) => {
+    let oldCount = props.item.count ? props.item.count : 0;
+    let newCount = oldCount + index;
+    const obj = {
+      name,
+      newCount,
+      price: props.item.price / props.item.count,
+      restaurantId: props.item.restaurantId,
+    };
+    props.onClickAddItem(obj);
   };
+
+  console.log(props.item);
   return (
     <div className="basket_item">
       <span className="basket_item_name">{props.item.name}</span>
       <div className="basket_item_func">
-        <div className={`${count === 0 ? 'minus' : ''} basket_btn`} onClick={() => onMinusClick(1)}>
+        <div
+          className={`${!props.item.count ? 'minus' : ''} basket_btn`}
+          onClick={() => onMinusClick(1, props.item.name)}>
           -
         </div>
         <span className="basket_count">{props.item.count}</span>
-        <div className="basket_btn" onClick={() => onPlusClick(1)}>
+        <div className="basket_btn" onClick={() => onPlusClick(1, props.item.name)}>
           +
         </div>
       </div>
