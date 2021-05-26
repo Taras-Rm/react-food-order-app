@@ -17,7 +17,7 @@ export const setLoaded = (payload) => {
 export const fetchRestaurant = (id) => (dispatch) => {
   dispatch(setLoaded);
   axios.get(`http://localhost:3001/restaurants?id=${id}`).then((response) => {
-    dispatch(setRestaurant(response.data[0]));
+    dispatch(setRestaurant(response.data));
   });
 };
 

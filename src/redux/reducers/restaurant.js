@@ -10,7 +10,7 @@ const restaurant = (state = initialState, action) => {
     case 'SET_RESTAURANT': {
       return {
         ...state,
-        activeRestaurant: action.restaurantObj,
+        activeRestaurant: action.restaurantObj[0],
         isLoaded: true,
       };
     }
