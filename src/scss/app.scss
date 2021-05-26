@@ -4,7 +4,9 @@
     box-sizing: border-box;
 }
 
-
+body {
+    font-family: 'PT Sans', sans-serif;
+}
 
 // сховаю скрол
 ::-webkit-scrollbar {
@@ -324,6 +326,10 @@ url("../resources/images/pizza.jpg") no-repeat 50% 65%;
 //////////
 .hidden {
     display: none;
+}
+
+.order {
+    margin-bottom: 40px;
 }
 
 .order .wrapper {

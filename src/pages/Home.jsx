@@ -44,7 +44,7 @@ const Home = (props) => {
       <Categories
         activeCategory={activeCategory}
         onSelectItem={onSelectItem}
-        items={['pizza', 'sushi', 'vegan', 'steak', 'seafood']}
+        items={['pizza', 'sushi', 'fastfood', 'steak', 'seafood']}
       />
 
       <div className="wrapper">
