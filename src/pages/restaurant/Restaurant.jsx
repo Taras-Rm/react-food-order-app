@@ -3,7 +3,7 @@ import Menu from './Menu/Menu';
 import Reviews from './Reviews/Reviews';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchRestaurant } from '../../redux/actions/restaurant';
+import { setRestaurant } from '../../redux/actions/restaurant';
 import { withRouter } from 'react-router';
 import LoadingImg from '../../components/LoadingImg';
 
@@ -12,13 +12,17 @@ const Restaurant = (props) => {
   // Перемикач
   const [activeItem, setActiveItem] = React.useState(null);
 
+  const allRestaurants = useSelector((state) => state.restaurants.items);
   const activeRestourant = useSelector((state) => state.restaurant.activeRestaurant);
   const isLoaded = useSelector((state) => state.restaurant.isLoaded);
+  console.log(allRestaurants);
+  console.log(allRestaurants.find((item) => item.id == props.match.params.id));
 
   React.useEffect(() => {
     // Отримую потрібний ресторан (об'єкт) по ID, яке беру з URL
-    dispatch(fetchRestaurant(props.match.params.id));
-  }, [props, dispatch]);
+    //dispatch(fetchRestaurant(props.match.params.id));
+    dispatch(setRestaurant(allRestaurants.find((item) => item.id == props.match.params.id)));
+  }, [props]);
 
   // Перевірка на те чи завантажено ресторан
   return isLoaded ? (
